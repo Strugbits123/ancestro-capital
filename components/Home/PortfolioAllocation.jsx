@@ -14,7 +14,7 @@ function PortfolioAllocation() {
     return (
         <div className='w-full bg-black flex justify-center items-center p-[20px]'>
             <div className='w-full lg:max-w-[750px] text-center flex flex-col gap-y-[20px]'>
-                <Typography.H2 className="text-white font-haas font-bold text-center pt-[50px] text-[30px] md:text-[40px] lg:text-[50px] uppercase">Portfolio Allocation</Typography.H2>
+                <Typography.H2 className="text-white font-haas font-bold text-center pt-[50px] text-[30px] md:text-[40px] lg:text-[50px]">Portfolio Allocation</Typography.H2>
                 <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-[20px] place-items-center'>
                     <Card icon={<svg width="52" height="47" viewBox="0 0 52 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_60_5616)">
