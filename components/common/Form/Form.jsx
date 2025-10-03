@@ -1,88 +1,246 @@
-"use client"; // if using Next.js App Router
+"use client";
 
-import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import TextField from "./TextField";
 import StepperHeading from "./StepperHeading";
 import SelectField from "./SelectField";
+import CheckboxField from "./CheckBoxField";
+import ThanksBox from "./ThanksBox";
+import { Controller } from "react-hook-form";
 
-export default function MultiStepForm({ classes }) {
-    const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: "",
-    });
+export default function MultiStepForm({
+  step,
+  setStep,
+  nextStep,
+  prevStep,
+  control,
+  register,
+  watch,
+  setValue,
+  handleSubmit,
+  errors,
+}) {
+  const { t } = useTranslation();
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleNextStep = () => {
+    handleSubmit(() => setStep(step + 1))();
+  };
 
-    const nextStep = () => setStep((prev) => prev + 1);
-    const prevStep = () => setStep((prev) => prev - 1);
+  return (
+    <div
+      className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
+        }`}
+    >
+      {step < 5 && <StepperHeading step={step} onClick={prevStep} />}
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted:", formData);
-        // You can send data to API here
-    };
+      {step === 6 ? (
+        <ThanksBox />
+      ) : (
+        <div>
+          {/* Step 1 */}
+          {step === 1 && (
+            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-[40px] gap-y-[20px]">
+              <TextField
+                label={t("form.fullName")}
+                name="name"
+                register={register}
+                rules={{ required: "This field is required" }}
+                error={errors?.name}
+              />
+              <TextField
+                label={t("form.email")}
+                name="email"
+                type="email"
+                register={register}
+                rules={{ required: "This field is required" }}
+                error={errors?.email}
+              />
+              <TextField
+                label={t("form.phoneNumber")}
+                name="phoneNumber"
+                type="tel"
+                register={register}
+                rules={{ required: "This field is required" }}
+                error={errors?.phoneNumber}
+              />
+              <TextField
+                label={t("form.countryOfResidency")}
+                name="countryOfResidency"
+                register={register}
+                rules={{ required: "This field is required" }}
+                error={errors?.countryOfResidency}
+              />
+            </div>
+          )}
 
-    return (
-        <div className="w-full flex flex-col gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[50px] backdrop-blur-[10px]">
-           <StepperHeading step={step} onClick={prevStep}/>
-
-            <form onSubmit={handleSubmit}>
-                {step === 1 && (
-                    <div className="w-full grid grid-cols-2 gap-x-[40px] gap-y-[20px]">
-                        <TextField label="FULL NAME"/>
-                        <TextField label="EMAIL"/>
-                        <TextField label="PHONE NUMBER"/>
-                        <TextField label="COUNTRY OF RESIDENCY"/>
-                    </div>
+          {/* Step 2 */}
+          {step === 2 && (
+            <div className="w-full flex flex-col lg:grid lg:grid-cols-2 gap-x-[40px] gap-y-[40px]">
+              <Controller
+                name="investmentRange"
+                control={control}
+                rules={{ required: "Please select an option" }}
+                render={({ field }) => (
+                  <SelectField
+                    label={t("form.InvestmentRange.name")}
+                    option={t("form.InvestmentRange.options", {
+                      returnObjects: true,
+                    })}
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={errors?.investmentRange}
+                  />
                 )}
-
-                {step === 2 && (
-                     <div className="w-full grid grid-cols-2 gap-x-[40px] gap-y-[40px]">
-                        <SelectField />
-                        <SelectField />
-                        <div className="col-span-2">
-                            <TextField label="How SOON ARE YOU LOOKING TO INVEST?(WITHING 30 DAYS /1-3 MONTHS/3+ MONTHS)"/>
-                        </div>
-                    </div>
+              />
+              <Controller
+                name="preferredTime"
+                control={control}
+                rules={{ required: "Please select an option" }}
+                render={({ field }) => (
+                  <SelectField
+                    label={t("form.preferredTime.name")}
+                    option={t("form.preferredTime.options", {
+                      returnObjects: true,
+                    })}
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={errors?.preferredTime}
+                  />
                 )}
+              />
+              <div className="col-span-2 ">
+                <TextField
+                  subLabel={t("form.investTimeSubLabel")}
+                  label={t("form.investTime")}
+                  name="investTime"
+                  register={register}
+                  rules={{ required: "This field is required" }}
+                  error={errors?.investTime}
+                />
+              </div>
+            </div>
+          )}
 
-                {step === 3 && (
-                    <div>
-                        <label className="block mb-2">Password:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="w-full border px-3 py-2 rounded"
-                        />
-                    </div>
+          {/* Step 3 */}
+          {step === 3 && (
+            <div className="w-full grid grid-cols-1 gap-x-[40px] gap-y-[40px]">
+              <Controller
+                name="investedBefore"
+                control={control}
+                rules={{ required: "Please select an option" }}
+                render={({ field }) => (
+                  <CheckboxField
+                    label={t("form.investedBefore.name")}
+                    options={t("form.investedBefore.options", {
+                      returnObjects: true,
+                    })}
+                    value={field.value}
+                    onChange={field.onChange}
+                    multiple={false} // single-select
+                    error={errors?.investedBefore}
+                  />
                 )}
+              />
+              <Controller
+                name="individualInvestor"
+                control={control}
+                rules={{ required: "Please select an option" }}
+                render={({ field }) => (
+                  <SelectField
+                    label={t("form.individualInvestor.name")}
+                    option={t("form.individualInvestor.options", {
+                      returnObjects: true,
+                    })}
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={errors?.individualInvestor}
+                  />
+                )}
+              />
+              <TextField
+                label={t("form.referral")}
+                name="referral"
+                register={register}
+                error={errors?.referral}
+              />
+              <Controller
+                name="accreditedInvestor"
+                control={control}
+                rules={{ required: "Please select an option" }}
+                render={({ field }) => (
+                  <CheckboxField
+                    label={t("form.accreditedInvestor.name")}
+                    options={t("form.accreditedInvestor.options", {
+                      returnObjects: true,
+                    })}
+                    value={field.value}
+                    onChange={field.onChange}
+                    multiple={false} // single-select
+                    error={errors?.accreditedInvestor}
+                  />
+                )}
+              />
+            </div>
+          )}
 
-                <div className="flex justify-between mt-4">
+          {/* Step 4 */}
+          {/* Step 4 */}
+          {/* Step 4 */}
+          {step === 4 && (
+            <Controller
+              name="checkAll"
+              control={control}
+              defaultValue={[]}
+              rules={{
+                validate: (val) => {
+                  const allOptions = [
+                    t("form.option1"),
+                    t("form.option2"),
+                    t("form.option3"),
+                    t("form.allOptions"),
+                  ];
 
-                    {step < 3 ? (
-                        <button
-                            type="button"
-                            onClick={nextStep}
-                            className="w-full bg-[#F8B03B] text-[#000000] cursor-pointer rounded-[50px] px-4 py-2 "
-                        >
-                            Next
-                        </button>
-                    ) : (
-                        <button
-                            type="submit"
-                            className="bg-green-500 text-white px-4 py-2 rounded"
-                        >
-                            Submit
-                        </button>
-                    )}
-                </div>
-            </form>
+                  // Check if all options are selected
+                  const allSelected = allOptions.every((opt) => val.includes(opt));
+                  return allSelected || "Please acknowledge all points by selecting every option";
+                },
+              }}
+              render={({ field, fieldState }) => (
+                <>
+                  <CheckboxField
+                    baseClass="flex-col gap-y-[10px]"
+                    label={t("form.checkAll")}
+                    options={[
+                      t("form.option1"),
+                      t("form.option2"),
+                      t("form.option3"),
+                      t("form.allOptions"),
+                    ]}
+                    value={field.value || []}
+                    onChange={field.onChange}
+                    multiple={true}
+                  />
+                  {fieldState?.error && (
+                    <span className="text-red-500 text-sm mt-1">{fieldState.error.message}</span>
+                  )}
+                </>
+              )}
+            />
+          )}
+
+
+
+          <div className="flex justify-between mt-4">
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
+            >
+              {step < 4 ? t("form.next") : t("form.bookAppointment")}
+            </button>
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 }
