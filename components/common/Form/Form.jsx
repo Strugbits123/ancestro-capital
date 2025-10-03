@@ -229,16 +229,25 @@ export default function MultiStepForm({
           )}
 
 
-
           <div className="flex justify-between mt-4">
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
-            >
-              {step < 4 ? t("form.next") : t("form.bookAppointment")}
-            </button>
+            {step < 4 ? (
+              <button
+                type="button"
+                onClick={handleNextStep}
+                className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
+              >
+                {t("form.next")}
+              </button>
+            ) : (
+              <button
+                type="submit" // submit form
+                className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
+              >
+                {t("form.bookAppointment")}
+              </button>
+            )}
           </div>
+
         </div>
       )}
     </div>
