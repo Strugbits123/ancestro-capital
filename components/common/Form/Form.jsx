@@ -28,7 +28,7 @@ export default function MultiStepForm({
 
   return (
     <div
-      className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
+      className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[20px] sm:p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
         }`}
     >
       {step < 5 && <StepperHeading step={step} onClick={prevStep} />}
@@ -183,9 +183,7 @@ export default function MultiStepForm({
             </div>
           )}
 
-          {/* Step 4 */}
-          {/* Step 4 */}
-          {/* Step 4 */}
+        
           {step === 4 && (
             <Controller
               name="checkAll"
@@ -197,7 +195,6 @@ export default function MultiStepForm({
                     t("form.option1"),
                     t("form.option2"),
                     t("form.option3"),
-                    t("form.allOptions"),
                   ];
 
                   // Check if all options are selected
@@ -214,7 +211,6 @@ export default function MultiStepForm({
                       t("form.option1"),
                       t("form.option2"),
                       t("form.option3"),
-                      t("form.allOptions"),
                     ]}
                     value={field.value || []}
                     onChange={field.onChange}
@@ -234,14 +230,14 @@ export default function MultiStepForm({
               <button
                 type="button"
                 onClick={handleNextStep}
-                className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
+                className="w-full uppercase bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-3"
               >
                 {t("form.next")}
               </button>
             ) : (
               <button
-                type="submit" // submit form
-                className="w-full bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
+                type="submit" 
+                className="w-full uppercase bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
               >
                 {t("form.bookAppointment")}
               </button>

@@ -3,7 +3,7 @@ import { Typography } from "../Typography";
 
 function ThanksBox() {
   return (
-    <div className="w-full rounded-[20px] py-[50px] px-[144px] bg-[#FFFFFF1A] flex flex-col justify-center items-center border border-[#F8B03B]">
+    <div className="w-full rounded-[20px] py-[50px] px-[20px] sm:px-[144px] bg-[#FFFFFF1A] flex flex-col justify-center items-center border border-[#F8B03B]">
       <Typography.Small className="text-white font-haas font-bold text-[47px] !text-center uppercase">
         Thank You!
       </Typography.Small>

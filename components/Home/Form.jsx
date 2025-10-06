@@ -36,15 +36,14 @@ export default function Form() {
     },
   });
 
-  // Watch all form values (optional)
+
   const formValues = watch();
   useEffect(() => {
     console.log("Form Values Changed:", formValues);
   }, [formValues]);
 
-  // Proceed to next step only if current step is valid
   const nextStep = async () => {
-    // Validate all fields of current step
+
     let currentStepFields = [];
 
     if (step === 1) {
@@ -57,7 +56,7 @@ export default function Form() {
       currentStepFields = ["checkAll"];
     }
 
-    // Validate only current step fields
+
     const isValid = await handleSubmit(() => setStep(step + 1))({
       ...formValues,
     }).catch(() => false);
@@ -78,7 +77,7 @@ export default function Form() {
       if (!response.ok) throw new Error("Failed to submit form");
 
       setSubmitted(true);
-      setStep(5); // go to ThanksBox
+      setStep(5);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -104,8 +103,8 @@ export default function Form() {
               register={register}
               watch={watch}
               setValue={setValue}
-              errors={errors} // pass errors to show invalid fields
-              handleSubmit={handleSubmit} // RHF submit handler
+              errors={errors}
+              handleSubmit={handleSubmit}
             />
           </form>
         )}

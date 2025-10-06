@@ -1,6 +1,7 @@
 "use client";
 
 import { Input } from "@headlessui/react";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 
 export default function TextField({
   label = "Service Name",
@@ -12,73 +13,71 @@ export default function TextField({
   type = "text",
   register,
   rules = {},
-  error, // <-- pass RHF error here
+  error,
   classes = "",
+  country = "US", // default country, can be passed in props
 }) {
+  // Validation map
+  const rulesMap = {
+    tel: {
+      validate: (value) => {
+        if (!value) return "Phone number is required";
+
+        // Try to parse with given default country
+        const phoneNumber = parsePhoneNumberFromString(value, country);
+
+        if (!phoneNumber) return "Invalid phone number format";
+        if (!phoneNumber.isValid()) return "Enter a valid phone number";
+
+        return true;
+      },
+    },
+    email: {
+      pattern: {
+        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        message: "Please enter a valid email address",
+      },
+    },
+    number: {
+      pattern: {
+        value: /^[0-9]*$/,
+        message: "Only numbers are allowed",
+      },
+    },
+  };
+
+  const extraRules = rulesMap[type] || {};
+
   return (
     <div className={`flex flex-col gap-y-[8px] ${classes}`}>
-      {/* Label */}
-      {label && subLabel ? (
-        <div className="w-full gap-x-[7px] flex items-center">
-          <label
-            htmlFor={name}
-            className="text-[14px] lg:text-[16px] font-poppins font-medium text-white"
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 500,
-              fontStyle: "medium",
-              lineHeight: "20px",
-            }}
-          >
-            {label}
-          </label>
-          <label
-            htmlFor={name}
-            className="text-[14px] lg:text-[12px] italic font-haas font-bold text-white"
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 500,
-              fontStyle: "medium",
-              lineHeight: "20px",
-            }}
-          >
-            {subLabel}
-          </label>
-        </div>
-      ) : (
+     
+      {label && (
         <label
           htmlFor={name}
-          className="text-[14px] lg:text-[16px] font-poppins font-medium text-white"
-          style={{
-            fontFamily: "Poppins, sans-serif",
-            fontWeight: 500,
-            fontStyle: "medium",
-            lineHeight: "20px",
-          }}
+          className="text-[14px] lg:text-[16px] font-poppins uppercase font-medium text-white"
         >
-          {label}
+          {label}{" "}
+          {subLabel && (
+            <span className="text-[12px] italic font-haas font-normal text-white">
+              {subLabel}
+            </span>
+          )}
         </label>
       )}
 
-      {/* Input */}
+     
       <Input
         id={name}
-        {...(register ? register(name, rules) : {})} // RHF registration
+        {...(register ? register(name, { ...rules, ...extraRules }) : {})}
         type={type}
+        autoComplete="off"
         placeholder={placeholder}
         onChange={onChange ? (e) => onChange(e) : undefined}
-        className={`border-b text-white text-[12px] leading-[24px] font-poppins font-normal placeholder:text-[#00000033] focus:outline-none ${
-          error ? "border-red-500" : "border-[#FFFFFF1A]"
-        } ${classInput}`}
-        style={{
-          fontFamily: "Poppins, sans-serif",
-          fontWeight: 400,
-          fontStyle: "normal",
-          letterSpacing: "0%",
-        }}
+        className={`border-b text-white text-[15px] leading-[24px] font-haas font-normal placeholder:text-[#00000033] focus:outline-none ${error ? "border-red-500" : "border-[#FFFFFF1A]"
+          } ${classInput}`}
       />
 
-      {/* Error Message */}
+      
       {error && (
         <span className="text-red-500 text-xs mt-1 font-poppins">
           {error.message || "This field is required"}

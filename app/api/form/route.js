@@ -5,8 +5,8 @@ export async function POST(req) {
     const body = await req.json();
 
     const client = await clientPromise;
-    const db = client.db("ancestro"); // your DB
-    const collection = db.collection("submissions"); // your collection
+    const db = client.db("ancestro"); 
+    const collection = db.collection("submissions");
 
     const result = await collection.insertOne(body);
 
