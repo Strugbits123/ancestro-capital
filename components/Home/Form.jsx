@@ -66,8 +66,6 @@ export default function Form() {
 
   const onSubmit = async (data) => {
     try {
-      console.log("Submitting Data:", data);
-
       const response = await fetch("/api/form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

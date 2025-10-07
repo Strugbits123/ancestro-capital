@@ -47,9 +47,8 @@ export default function SelectField({
       <div className="relative mt-1">
         <Listbox value={value} onChange={onChange}>
           <ListboxButton
-            className={`relative ${mainIcon ? "flex items-center gap-x-[10px]" : ""} w-full cursor-default py-2 pl-3 pr-10 text-left text-sm text-white focus:outline-none ${classes} border-b ${
-              error ? "border-red-500" : "border-[#FFFFFF1A]"
-            }`}
+            className={`relative ${mainIcon ? "flex items-center gap-x-[10px]" : ""} w-full cursor-default py-2 pl-3 pr-10 text-left text-sm text-white focus:outline-none ${classes} border-b ${error ? "border-red-500" : "border-[#FFFFFF1A]"
+              }`}
           >
             {mainIcon}
             <span
@@ -64,23 +63,24 @@ export default function SelectField({
             </span>
           </ListboxButton>
 
-        <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-  <ListboxOptions
-    className={`absolute mt-1 bg-white/10 backdrop-blur-md max-h-60 w-full overflow-auto rounded-md border border-[#E5E5E5] text-sm shadow-lg focus:outline-none z-[5000] ${classes}`}
-  >
-    {option.map((opt) => (
-      <ListboxOption
-        key={opt}
-        value={opt}
-        className={({ active }) =>
-          `relative cursor-pointer select-none py-2 pl-3 pr-4 ${active ? "bg-white/20 text-white" : "text-white"} font-poppins font-semibold`
-        }
-      >
-        {opt}
-      </ListboxOption>
-    ))}
-  </ListboxOptions>
-</Transition>
+          <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
+            <ListboxOptions
+              className={`absolute mt-1 bg-[#FFFFFF1A] bg-black/50 backdrop-blur-sm max-h-60 w-full overflow-auto rounded-md border border-[#E5E5E5] text-sm shadow-lg focus:outline-none z-[5000] ${classes}`}
+            >
+              {option.map((opt) => (
+                <ListboxOption
+                  key={opt}
+                  value={opt}
+                  className={({ active }) =>
+                    `relative cursor-pointer select-none py-2 pl-3 pr-4 ${active ? "bg-white/30 text-white" : "text-white"
+                    } font-poppins font-semibold`
+                  }
+                >
+                  {opt}
+                </ListboxOption>
+              ))}
+            </ListboxOptions>
+          </Transition>
         </Listbox>
       </div>
 
