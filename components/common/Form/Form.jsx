@@ -183,7 +183,7 @@ export default function MultiStepForm({
             </div>
           )}
 
-        
+
           {step === 4 && (
             <Controller
               name="checkAll"
@@ -236,7 +236,7 @@ export default function MultiStepForm({
               </button>
             ) : (
               <button
-                type="submit" 
+                type="submit"
                 className="w-full uppercase bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
               >
                 {t("form.bookAppointment")}

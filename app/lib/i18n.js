@@ -98,7 +98,7 @@ const enTranslations = {
         option2: "I understand Ancestro Green Bonds are private investments with fixed 3–5 year terms and annual yields of 10–12%.",
         option3: "I would like to schedule a call with the Ancestro Capital team.",
         next: "Next",
-        bookAppointment: "Book your appointment",
+        bookAppointment: "Submit",
     },
     footer: {
         title: "Powered by Ancestro Ecosystem",
@@ -214,7 +214,7 @@ const esTranslations = {
         option2: "Entiendo que los Ancestro Green Bonds son inversiones privadas con plazos fijos de 3–5 años y rendimientos anuales del 10–12%.",
         option3: "Me gustaría programar una llamada con el equipo de Ancestro Capital.",
         next: "Siguiente",
-        bookAppointment: "Reserva tu cita",
+        bookAppointment: "Enviar",
     },
 
     footer: {
