@@ -1,34 +1,8 @@
-// import clientPromise from "../../../lib/mongodb";
-
-// export async function POST(req) {
-//   try {
-//     const body = await req.json();
-
-//     const client = await clientPromise;
-//     const db = client.db("ancestro"); 
-//     const collection = db.collection("submissions");
-
-//     const result = await collection.insertOne(body);
-
-//     return new Response(JSON.stringify({ success: true, id: "21" }), {
-//       status: 200,
-//       headers: { "Content-Type": "application/json" },
-//     });
-//   } catch (err) {
-//     console.error("MongoDB insert error:", err);
-//     return new Response(JSON.stringify({ error: "Failed to insert data" }), {
-//       status: 500,
-//       headers: { "Content-Type": "application/json" },
-//     });
-//   }
-// }
-
-
 import clientPromise from "../../../lib/mongodb";
 import axios from "axios";
 
 // Your Calendly personal access token
-const ACCESS_TOKEN = "eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzU5OTMzMTIxLCJqdGkiOiI3NTJiODI5Ny01ZjE5LTRmMmUtOGZhMC02YjUyMjI0YmRjZmQiLCJ1c2VyX3V1aWQiOiI5NDQwMGVlZC0yNTE0LTQ5NDYtYmU4MS02YjU0YTU0YTY3YzUifQ.RGKnmsM0LKkLarNoYgMMQ5-6T349HBl7nB_PRxuGGPUsCyst0rqxzsTf__S-EJyZEbrfJII8yVPgBnTBhgixvQ";
+const ACCESS_TOKEN = process.env.Access_Token;
 
 // Fetch full invitee data
 async function getInviteeDetails(inviteeUri) {

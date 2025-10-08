@@ -33,7 +33,7 @@ function Calendly({ watch, setStep }) {
 
     return (
         <div>
-            <InlineWidget url="https://calendly.com/awais90789/30min" />
+            <InlineWidget url="https://calendly.com/tarzan-ancestroenergy/30min" />
         </div>
     );
 }
