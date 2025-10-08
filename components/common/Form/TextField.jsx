@@ -78,7 +78,7 @@ return (
 
     <Input
       id={name}
-      {...(register ? register(name, { ...rules, ...extraRules }) : {})}
+      {...(register ? register(name, { ...rules}) : {})}
       type={type}
       autoComplete="off"
       placeholder={placeholder}
