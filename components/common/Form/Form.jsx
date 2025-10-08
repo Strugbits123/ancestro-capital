@@ -29,6 +29,7 @@ export default function MultiStepForm({
 
   return (
     <div
+    id="target-section"
       className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[20px] sm:p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
         }`}
     >
