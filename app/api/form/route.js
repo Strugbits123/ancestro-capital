@@ -1,16 +1,16 @@
-import clientPromise from "../../../lib/mongodb";
+// import clientPromise from "../../../lib/mongodb";
 
 export async function POST(req) {
   try {
-    const body = await req.json();
+    // const body = await req.json();
 
-    const client = await clientPromise;
-    const db = client.db("ancestro"); 
-    const collection = db.collection("submissions");
+    // const client = await clientPromise;
+    // const db = client.db("ancestro"); 
+    // const collection = db.collection("submissions");
 
-    const result = await collection.insertOne(body);
+    // const result = await collection.insertOne(body);
 
-    return new Response(JSON.stringify({ success: true, id: result.insertedId }), {
+    return new Response(JSON.stringify({ success: true, id: "21" }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
