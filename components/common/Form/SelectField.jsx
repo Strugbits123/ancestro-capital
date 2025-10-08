@@ -65,7 +65,7 @@ export default function SelectField({
 
           <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
             <ListboxOptions
-              className={`absolute mt-1 bg-[#FFFFFF1A] bg-black/50 backdrop-blur-sm max-h-60 w-full overflow-auto rounded-md border border-[#E5E5E5] text-sm shadow-lg focus:outline-none z-[5000] ${classes}`}
+              className={`absolute mt-1  bg-black/50 backdrop-blur-sm max-h-60 w-full overflow-auto rounded-md border border-[#E5E5E5] text-sm shadow-lg focus:outline-none z-[5000] ${classes}`}
             >
               {option.map((opt) => (
                 <ListboxOption
