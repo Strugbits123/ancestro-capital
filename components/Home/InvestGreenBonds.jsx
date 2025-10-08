@@ -44,7 +44,7 @@ function BondsDetail() {
       <div className="sm:w-[631px] sm:h-[408px] max-sm:w-full ">
         <img src={bond.src} alt="" className="w-full h-full rounded-[20px]" />
       </div>
-      <div className="flex flex-col gap-y-[10px]">
+      <div className="flex flex-col gap-y-[10px] sm:w-[700px]">
         <Typography.H2 className="text-white font-haas font-bold">
           {t("investGreenBonds.title")}
         </Typography.H2>

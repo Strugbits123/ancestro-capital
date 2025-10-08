@@ -7,6 +7,7 @@ import SelectField from "./SelectField";
 import CheckboxField from "./CheckBoxField";
 import ThanksBox from "./ThanksBox";
 import { Controller } from "react-hook-form";
+import Calendly from "../Calendly/Calendly";
 
 export default function MultiStepForm({
   step,
@@ -31,7 +32,7 @@ export default function MultiStepForm({
       className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[20px] sm:p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
         }`}
     >
-      {step < 5 && <StepperHeading step={step} onClick={prevStep} />}
+      {step < 6 && <StepperHeading step={step} onClick={prevStep} />}
 
       {step === 6 ? (
         <ThanksBox />
@@ -44,7 +45,7 @@ export default function MultiStepForm({
                 label={t("form.fullName")}
                 name="name"
                 register={register}
-                rules={{ required: "This field is required" }}
+                rules={{ required: { value: true, message: t("errors.required") } }}
                 error={errors?.name}
               />
               <TextField
@@ -52,7 +53,7 @@ export default function MultiStepForm({
                 name="email"
                 type="email"
                 register={register}
-                rules={{ required: "This field is required" }}
+                rules={{ required: t("errors.required") }}
                 error={errors?.email}
               />
               <TextField
@@ -60,14 +61,14 @@ export default function MultiStepForm({
                 name="phoneNumber"
                 type="tel"
                 register={register}
-                rules={{ required: "This field is required" }}
+                rules={{ required: t("errors.required") }}
                 error={errors?.phoneNumber}
               />
               <TextField
                 label={t("form.countryOfResidency")}
                 name="countryOfResidency"
                 register={register}
-                rules={{ required: "This field is required" }}
+                rules={{ required: t("errors.required") }}
                 error={errors?.countryOfResidency}
               />
             </div>
@@ -114,7 +115,7 @@ export default function MultiStepForm({
                   label={t("form.investTime")}
                   name="investTime"
                   register={register}
-                  rules={{ required: "This field is required" }}
+                  rules={{ required: t("errors.required") }}
                   error={errors?.investTime}
                 />
               </div>
@@ -199,7 +200,7 @@ export default function MultiStepForm({
 
                   // Check if all options are selected
                   const allSelected = allOptions.every((opt) => val.includes(opt));
-                  return allSelected || "Please acknowledge all points by selecting every option";
+                  return allSelected || t("errors.lastError");
                 },
               }}
               render={({ field, fieldState }) => (
@@ -217,16 +218,20 @@ export default function MultiStepForm({
                     multiple={true}
                   />
                   {fieldState?.error && (
-                    <span className="text-red-500 text-sm mt-1">{fieldState.error.message}</span>
+                    // <span className="text-red-500 text-sm mt-1">{fieldState.error.message}</span>
+                    <span className="text-red-500 text-sm mt-1">{t("errors.lastError")}</span>
+
                   )}
                 </>
               )}
             />
           )}
 
+          {step === 5 && <Calendly watch={watch} />}
 
-          <div className="flex justify-between mt-4">
-            {step < 4 ? (
+
+          <div className={`flex justify-between mt-4 ${step == 5 ? "hidden" : "flex"}`}>
+            {step < 5 ? (
               <button
                 type="button"
                 onClick={handleNextStep}
@@ -235,12 +240,32 @@ export default function MultiStepForm({
                 {t("form.next")}
               </button>
             ) : (
-              <button
-                type="submit"
-                className="w-full uppercase bg-[#F8B03B] font-haas font-bold text-[#000000] cursor-pointer rounded-[50px] px-4 py-2"
-              >
-                {t("form.bookAppointment")}
-              </button>
+              <Controller
+                name="checkAll"
+                control={control}
+                render={({ field }) => {
+                  const allOptions = [
+                    t("form.option1"),
+                    t("form.option2"),
+                    t("form.option3"),
+                  ];
+                  const allSelected = allOptions.every((opt) => field.value?.includes(opt));
+
+                  return (
+                    <button
+                      type="submit"
+                      disabled={!allSelected}
+                      className={`w-full uppercase font-haas font-bold rounded-[50px] px-4 py-2 
+              ${allSelected
+                          ? "bg-[#F8B03B] text-[#000000] cursor-pointer"
+                          : "bg-gray-400 text-gray-700 cursor-not-allowed"
+                        }`}
+                    >
+                      {t("form.bookAppointment")}
+                    </button>
+                  );
+                }}
+              />
             )}
           </div>
 

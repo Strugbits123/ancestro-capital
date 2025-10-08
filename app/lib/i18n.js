@@ -104,6 +104,16 @@ const enTranslations = {
         title: "Powered by Ancestro Ecosystem",
         text1: "Address: Piso 19, 2G5F+72C, Av Paseo del Mar, Panamá, Panamá",
         text2: "Contact us: +57 300 1726236"
+    },
+    errors:{
+        required: "This field is required",
+        phoneRequiered: "Phone number is required",
+        phoneFormat: "Invalid phone number format",
+        phoneValid:"Enter a valid phone number",
+        phoneIncomplete: "Incomplete phone number",
+        phoneGerman:"German numbers must be at least 11 digits long",
+        selectError:"Please select an option",
+        lastError:"Please acknowledge all points by selecting every option"
     }
 };
 
@@ -221,6 +231,16 @@ const esTranslations = {
         title: "Impulsado por el Ecosistema Ancestro",
         text1: "Dirección: Piso 19, 2G5F+72C, Av Paseo del Mar, Panamá, Panamá",
         text2: "Contáctanos: +57 300 1726236"
+    },
+    errors:{
+        required: "Este campo es requerido",
+        phoneRequiered:"El teléfono es requerido",
+        phoneFormat: "Formato de teléfono inválido",
+        phoneValid:"Ingrese un teléfono válido",
+        phoneIncomplete: "Teléfono incompleto",
+        phoneGerman:"Los números alemanes deben tener al menos 11 dígitos",
+        selectError:"Por favor, seleccione una opción",
+        lastError:"Por favor, acepte todos los puntos seleccionando todas las opciones"
     }
 
 };

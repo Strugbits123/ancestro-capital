@@ -9,6 +9,7 @@ import GlobalExperise from "@/components/Home/GlobalExperise";
 import LearnMore from "@/components/Home/LearnMore";
 import Form from "@/components/Home/Form";
 import PoweredAncestro from "@/components/Home/PoweredAncestro";
+import IntroducingAncestro from "@/components/Home/IntroducingAncestro";
 
 export default function Home() {
 
@@ -30,6 +31,7 @@ export default function Home() {
     <>
       <HeroSection heroSection={heroSection}/>
       {/* <Investors /> */}
+      <IntroducingAncestro />
       <GreenBonds />
       <HowItWorks />
       <InvestGreenBonds />

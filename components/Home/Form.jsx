@@ -82,17 +82,18 @@ export default function Form() {
   };
 
   return (
-    <div className="w-full bg-black pt-[150px] flex justify-center items-center bg-cover bg-center">
-      <div className="w-full flex flex-col max-w-[931px] gap-y-[20px] items-center p-8 rounded-lg">
+    <div className="w-full  bg-black pt-[150px] flex justify-center items-center bg-cover bg-center">
+      <div className="w-full sm:h-[400px] flex flex-col max-w-[931px] gap-y-[20px] items-center p-8 rounded-lg">
         <Typography.H3 className="text-white font-haas font-bold text-[30px] text-center uppercase">
           {t("form.title")}
         </Typography.H3>
 
-        {step === 5 || submitted ? (
+        {step === 6 || submitted ? (
           <ThanksBox />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <MultiStepForm
+            formValues={formValues}
               step={step}
               setStep={setStep}
               nextStep={nextStep}

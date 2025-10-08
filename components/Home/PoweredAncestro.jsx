@@ -45,7 +45,7 @@ function PoweredAncestro() {
 
   return (
     <div
-      className="w-full bg-black pb-[50px] pt-[300px] flex flex-col justify-center items-center px-[20px] bg-cover bg-center"
+      className="w-full bg-black  pb-[50px] pt-[300px] flex flex-col justify-center items-center px-[20px] bg-cover bg-center b"
       style={{ backgroundImage: `url(${grassImage.src})` }}
     >
       <div className="w-full max-w-[1001px] h-full grid grid-cols-2 lg:grid-cols-5 place-items-center gap-x-[10px] gap-y-[50px]">

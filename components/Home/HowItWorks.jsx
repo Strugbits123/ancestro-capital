@@ -19,6 +19,7 @@ function HowItWorks() {
   const { t, i18n } = useTranslation();
   return (
     <div className="w-full bg-black flex items-center justify-center py-[150px] p-[20px]">
+      
       <div className="w-full lg:max-w-[1077px] flex flex-col items-center justify-center gap-y-[20px]">
         <Typography.H2 className="text-white font-haas font-bold text-[40px] text-center uppercase">
           {t("howItWorks.title")}

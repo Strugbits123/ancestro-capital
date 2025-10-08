@@ -49,16 +49,7 @@ function HeroSection() {
       </div>
 
       {/* Bottom Content */}
-      <div className="w-full max-w-[900px] mb-[40px]">
-        <Typography.H3 className="text-white font-haas font-bold text-[30px] text-center uppercase">
-          {t("heroSection.secondTitle")}
-        </Typography.H3>
-        <Typography.P
-          className="!text-[#FFFFFF] font-haas font-normal text-[16px] text-center mt-[10px]"
-        >
-          {t("heroSection.secondSubTitle")}
-          </Typography.P>
-      </div>
+     
     </div>
   );
 }
