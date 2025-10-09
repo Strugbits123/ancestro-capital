@@ -29,8 +29,8 @@ export default function MultiStepForm({
 
   return (
     <div
-    id="target-section"
-      className={`w-full flex flex-col mb-[-20%] gap-y-[50px] max-w-[823px] bg-[#FFFFFF1A] rounded-[20px] p-[20px] sm:p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
+      id="target-section"
+      className={`w-full flex flex-col mb-[-20%] gap-y-[50px]  border border-whites bg-[#FFFFFF1A] rounded-[20px] p-[20px] sm:p-[50px] backdrop-blur-[10px] ${step === 5 ? "border border-[#F8B03B]" : ""
         }`}
     >
       {step < 6 && <StepperHeading step={step} onClick={prevStep} />}
@@ -228,11 +228,11 @@ export default function MultiStepForm({
             />
           )}
 
-          {step === 5 && <Calendly watch={watch} />}
+          {/* {step === 5 && <Calendly watch={watch} step={step} onClick={prevStep} />} */}
 
 
           <div className={`flex justify-between mt-4 ${step == 5 ? "hidden" : "flex"}`}>
-            {step < 5 ? (
+            {step < 4 ? (
               <button
                 type="button"
                 onClick={handleNextStep}
@@ -254,15 +254,16 @@ export default function MultiStepForm({
 
                   return (
                     <button
-                      type="submit"
+                      type="button"
                       disabled={!allSelected}
+                      onClick={handleNextStep}
                       className={`w-full uppercase font-haas font-bold rounded-[50px] px-4 py-2 
               ${allSelected
                           ? "bg-[#F8B03B] text-[#000000] cursor-pointer"
                           : "bg-gray-400 text-gray-700 cursor-not-allowed"
                         }`}
                     >
-                      {t("form.bookAppointment")}
+                      {t("form.next")}
                     </button>
                   );
                 }}

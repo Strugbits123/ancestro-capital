@@ -39,7 +39,7 @@ export default function SelectField({
   );
 
   return (
-    <div className="flex flex-col gap-y-[8px]">
+    <div className="flex flex-col">
       <Listbox value={value} onChange={onChange}>
         {({ open }) => (
           <>
@@ -60,7 +60,7 @@ export default function SelectField({
               </ListboxButton>
             )}
 
-            <div className="relative mt-1">
+            <div className="relative mt-[-1px]">
               <ListboxButton
                 className={`relative ${mainIcon ? "flex items-center gap-x-[10px]" : ""
                   } w-full cursor-default py-2 pl-3 pr-10 text-left text-sm text-white focus:outline-none ${classes} border-b ${error ? "border-red-500" : "border-[#FFFFFF1A]"
