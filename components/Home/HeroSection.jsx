@@ -29,11 +29,13 @@ function HeroSection() {
       }}
     >
       {/* 🔘 Language Switch Button (Top-Left) */}
-      <div className="fixed top-[20px] left-[20px]">
+      <div className="fixed top-[20px] right-[20px]">
         <Button
           text={i18n.language === "en" ? "ES" : "EN"}
-          classes="bg-transparent"
-          textClasses="uppercase"
+          classes="animate-top-to-bottom-hop z-50 bg-[#F8B03B]
+                   tracking-[2px] font-haas font-bold  text-[16px] px-8 py-2
+                   shadow-[0_10px_30px_rgba(248,176,59,0.8)] text-white border-1 border-[#F8B03B] "
+          textClasses="!text-black uppercase"
           onClick={toggleLanguage}
         />
       </div>
@@ -49,7 +51,7 @@ function HeroSection() {
       </div>
 
       {/* Bottom Content */}
-     
+
     </div>
   );
 }

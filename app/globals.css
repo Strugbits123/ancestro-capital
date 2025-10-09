@@ -27,3 +27,7 @@
 :root {
   --font-haas: "HaasNeue", Helvetica, Arial, sans-serif;
 }
+html {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}

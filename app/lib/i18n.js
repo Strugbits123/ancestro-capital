@@ -105,15 +105,15 @@ const enTranslations = {
         text1: "Address: Piso 19, 2G5F+72C, Av Paseo del Mar, Panamá, Panamá",
         text2: "Contact us: +57 300 1726236"
     },
-    errors:{
+    errors: {
         required: "This field is required",
         phoneRequiered: "Phone number is required",
         phoneFormat: "Invalid phone number format",
-        phoneValid:"Enter a valid phone number",
+        phoneValid: "Enter a valid phone number",
         phoneIncomplete: "Incomplete phone number",
-        phoneGerman:"German numbers must be at least 11 digits long",
-        selectError:"Please select an option",
-        lastError:"Please acknowledge all points by selecting every option"
+        phoneGerman: "German numbers must be at least 11 digits long",
+        selectError: "Please select an option",
+        lastError: "Please acknowledge all points by selecting every option"
     }
 };
 
@@ -145,11 +145,11 @@ const esTranslations = {
             "Con Ancestro, tu inversión no solo genera ganancias sino que también salva al planeta Tierra de la catástrofe.",
     },
     howItWorks: {
-        title: "Comment ça marche",
-        text1: "Investissez dans les obligations vertes d’Ancestro.",
-        text2: "Gagnez des rendements annuels fixes (10–12%)",
-        text3: "Investissez dans les obligations vertes d’Ancestro.",
-        text4: "Récupérez votre capital total + intérêts cumulés à l’échéance (3–5 ans)"
+        title: "Cómo Funciona",
+        text1: "Invierte en Bonos Verdes de Ancestro.",
+        text2: "Gana rendimientos fijos anuales (10–12%)",
+        text3: "Invierte en Bonos Verdes de Ancestro.",
+        text4: "Recupera tu capital completo + intereses acumulados al vencimiento (3–5 años)"
     },
     investGreenBonds: {
         title: "En Qué Estás Invirtiendo",
@@ -232,15 +232,15 @@ const esTranslations = {
         text1: "Dirección: Piso 19, 2G5F+72C, Av Paseo del Mar, Panamá, Panamá",
         text2: "Contáctanos: +57 300 1726236"
     },
-    errors:{
+    errors: {
         required: "Este campo es requerido",
-        phoneRequiered:"El teléfono es requerido",
+        phoneRequiered: "El teléfono es requerido",
         phoneFormat: "Formato de teléfono inválido",
-        phoneValid:"Ingrese un teléfono válido",
+        phoneValid: "Ingrese un teléfono válido",
         phoneIncomplete: "Teléfono incompleto",
-        phoneGerman:"Los números alemanes deben tener al menos 11 dígitos",
-        selectError:"Por favor, seleccione una opción",
-        lastError:"Por favor, acepte todos los puntos seleccionando todas las opciones"
+        phoneGerman: "Los números alemanes deben tener al menos 11 dígitos",
+        selectError: "Por favor, seleccione una opción",
+        lastError: "Por favor, acepte todos los puntos seleccionando todas las opciones"
     }
 
 };
