@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  title: "Ancestroy Green Bonds",
+  title: "Ancestro Green Bonds",
   description: "Multilingual site",
   icons:{
     icon: "/icon.svg"
