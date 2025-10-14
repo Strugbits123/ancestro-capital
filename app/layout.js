@@ -32,20 +32,13 @@ export const metadata = {
   },
   openGraph: {
     title: "Ancestro Green Bonds",
-    images: [
-      {
-        url: "https://www.ancestrocapital.com/bonds.png", // ✅ the preview image URL
-        width: 1200,
-        height: 630,
-        alt: "Ancestro Green Bonds Preview",
-      },
-    ],
+    images: ["/images/bonds.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ancestro Green Bonds",
     description: "Invest in sustainability with Green Bonds",
-    images: ["https://www.ancestrocapital.com/bonds.png"],
+    images: ["/images/bonds.png"],
   },
 };
 
