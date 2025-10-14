@@ -38,7 +38,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ancestro Green Bonds",
     description: "Invest in sustainability with Green Bonds",
-    images: ["https://www.ancestrocapital.com/bonds.png"],
+    images: ["/images/bonds.png"],
   },
 };
 
