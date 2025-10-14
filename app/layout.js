@@ -25,18 +25,14 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  title: "Ancestro Green Bonds",
-  description: "Ancestro Capital",
+  title: "Ancestro Capital",
   icons: {
     icon: "/icon.svg", // browser tab favicon
   },
   openGraph: {
-    title: "Ancestro Green Bonds",
     images: ["/images/bonds.png"],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Ancestro Green Bonds",
     description: "Invest in sustainability with Green Bonds",
     images: ["/images/bonds.png"],
   },
