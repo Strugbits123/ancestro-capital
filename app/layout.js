@@ -33,7 +33,6 @@ export const metadata = {
     images: ["/images/bonds.png"],
   },
   twitter: {
-    description: "Invest in sustainability with Green Bonds",
     images: ["/images/bonds.png"],
   },
 };
