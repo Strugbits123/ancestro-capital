@@ -55,12 +55,12 @@ function BondsDetail() {
         {/* First List */}
         <List list={t("investGreenBonds.list", { returnObjects: true })} />
 
-        <Typography.P className="!text-[#FFFFFF] font-haas font-normal text-[18px] mt-[10px] italic">
+        {/* <Typography.P className="!text-[#FFFFFF] font-haas font-normal text-[18px] mt-[10px] italic">
           {t("investGreenBonds.text2")}
-        </Typography.P>
+        </Typography.P> */}
 
         {/* Second List */}
-        <div className="flex flex-col gap-y-[10px]">
+        <div className="flex flex-col gap-y-[10px] mt-[20px]">
           <Points data={t("investGreenBonds.list2", { returnObjects: true })} />
         </div>
       </div>
