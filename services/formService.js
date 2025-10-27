@@ -29,7 +29,7 @@ export async function processFormSubmission(body) {
     if (body.email) {
         await sendUserConfirmation(dataToInsert);
     }
-    await sendAdminNotification(process.env.ADMIN_EMAIL, dataToInsert);
+    await sendAdminNotification(process.env.SENDGRID_FROM_EMAIL, dataToInsert);
 
     return { id: result.insertedId };
 }
