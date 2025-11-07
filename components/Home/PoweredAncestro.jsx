@@ -18,7 +18,7 @@ function Footer() {
     <div className="w-full flex flex-col justify-center items-center bg-cover bg-center gap-y-[100px] mt-[160px]">
       <img src={logo.src} alt="" className="w-[250px] h-[157px]" />
       <div className="flex gap-x-[10px] w-full justify-center items-center">
-        <Typography.P className="!text-[#FFFFFF] font-haas font-normal text-[16px]">
+        {/* <Typography.P className="!text-[#FFFFFF] font-haas font-normal text-[16px]">
           {t("footer.text1")}
         </Typography.P>
 
@@ -30,7 +30,7 @@ function Footer() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect y="0.5" width="50" height="1" fill="#D9D9D9" />
-        </svg>
+        </svg> */}
 
         <Typography.P className="!text-[#FFFFFF] font-haas font-normal text-[16px]">
           {t("footer.text2")}
